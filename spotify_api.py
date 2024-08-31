@@ -142,7 +142,7 @@ plt.figure(figsize=(10, 6))
 
 
 
-#plot
+#create a plot of average popularity of each album by release year
 plt.plot(year,popularity_average, color='blue', label='Popularity',marker=".")
 #label for the x-axis
 plt.xlabel('Year')  
