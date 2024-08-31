@@ -78,10 +78,12 @@ def get_all_tracks_from_album(album_id):
     
     return tracks
 
-# print album names, release date, and tracks of each album
 
 
+#the dict is for later use of print out 5 top songs fron the artist
 track_pop_dict={}
+
+# print album names, release date, and tracks of each album
 for album in albums:
     #save all popularity of each song in a specific album in one list
     popularity_for_all=[]
