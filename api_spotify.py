@@ -1,4 +1,4 @@
-#Part of the code was developed with the help of ChatGPT.
+#Code was constructed with Spotipy API and ChatGPT referencing SpotipyAPI.
 
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
@@ -13,6 +13,40 @@ client_secret = 'bd65693f357544e794e1090acccdfc46'
 client_credentials_manager = SpotifyClientCredentials(client_id=client_id, client_secret=client_secret)
 sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 
+# tools to use from Spotipy
+playlist_id = '37i9dQZF1E39pCaJfDcdb8'
+playlist_ob = sp.playlist_tracks(playlist_id)
+tracks = playlist_ob['items']
+
+print('--- TRACKS IN PLAYLIST ---')
+for item in tracks:
+    track = item['track'] # tracks contains id, name, artisit, album data, and more
+    print(track['name'])
+    
+# reading in albums from an artist
+artist_id = '2jbd7OqeJJd1hz81vOXwwW'
+albums_ob = sp.artist_albums(artist_id = artist_id, album_type='single')
+albums = albums_ob['items']
+
+print('--- ALBUMS IN ARTIST ---')
+for album in albums:
+    print(album['name'])
+    
+# reading in tracks from an album
+album_id = '26rTTXIEtEeSTan28AiLaV'
+tracks_ob = sp.album_tracks(album_id)
+tracks = tracks_ob['items']
+
+print('--- TRACKS IN ALBUM ---')
+for track in tracks:
+    print(track['name'])
+    
+# cool track feature
+print('--- TRACK FEATURE ---')
+track_id = '7qzQfE2se3Ai5reZcxs920'
+audio_features = sp.audio_features(track_id) # audio features, audio analysis, etc.
+print(audio_features[0]['danceability'])
+#end of tools to use from Spotipy
 
 #input artist's name
 artist_name_input=input("Enter artist's name: ")
